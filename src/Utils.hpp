@@ -3,20 +3,26 @@
 #define UTILS_HPP
 
 #include <string>
+#include "FieldType.hpp"
 
 class Utils {
 public:
-    static bool isValidDate(const std::string& date) {
-
-    }
-    static std::string trim(const std::string& str) {
-
-    }
-    static bool equalsIgnoreCase(const std::string& a, const std::string& b) {
-
-    }
-    static bool containsIgnoreCase(const std::string& str, const std::string& substr) {
-        
+    static const std::string& fieldTypeToString(const FieldType& type) {
+        switch (type)
+        {
+        case FieldType::INT:
+            return "INTEGER";
+        case FieldType::FLOAT:
+            return "FLOAT";
+        case FieldType::STRING:
+            return "STRING";
+        case FieldType::CALENDAR_DATE:
+            return "CALENDAR_DATE";
+        case FieldType::NULL_VALUE:
+            return "NULL";
+        default:
+            return "UNKNOWN FIELD TYPE";
+        }
     }
 };
 

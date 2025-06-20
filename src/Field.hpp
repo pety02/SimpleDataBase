@@ -3,23 +3,25 @@
 #define FIELD_HPP
 
 #include "FieldType.hpp"
-#include <string>
+#include <exception>
+#include <stdexcept>
 
 class Field {
 private:
     FieldType type;
-    std::string rawValue; // Could be NULL, or actual string representation
+    std::string rawValue; // Could be 'NULL', or actual string representation
 
 public:
     Field();
-    Field(FieldType type, const std::string& value);
+    Field(const FieldType& type, const std::string& value);
 
-    FieldType getType() const;
-    std::string getValue() const;
+    const FieldType& getType() const;
+    const std::string getValue() const;
 
     bool isNull() const;
-    void setValue(const std::string& value);
-    void setNull();
+    bool setType(const FieldType& type);
+    bool setValue(const std::string& value, const FieldType& type);
+    bool setNull();
 };
 
 #endif

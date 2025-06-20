@@ -2,21 +2,23 @@
 #ifndef COLUMN_HPP
 #define COLUMN_HPP
 
-#include "FieldType.hpp"
+#include "Field.hpp"
 #include <vector>
-#include <string>
 
 class Column {
 private:
-FieldType type;
-std::vector<std::string> values;
+std::string name;
+std::vector<Field> values;
 
 public:
-Column(FieldType FieldType);
-Column(FieldType FieldType, std::vector<std::string>values);
+Column(const std::string& name);
+Column(const std::string& name, const std::vector<Field>& values);
 
-const FieldType getFieldType() const;
-const std::vector<std::string> getValues() const;
+bool setName(const std::string& name);
+bool setValues(const std::vector<Field>& values);
+
+const std::string& getName() const;
+const std::vector<Field>& getValues() const;
 };
 
 #endif

@@ -14,7 +14,10 @@ public:
     Row(const std::vector<Field>& fields);
 
     const std::vector<Field>& getFields() const;
-    void setField(size_t index, const Field& field);
+    bool setFields(const std::vector<Field>& fields);
+    bool setField(size_t index, const Field& field);
+
+    const std::vector<Field>& getFields() const;
 };
 
 #endif
